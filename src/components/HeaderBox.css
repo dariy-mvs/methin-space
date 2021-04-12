@@ -1,0 +1,106 @@
+.header_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-right: 8%;
+  padding-left: 8%;
+  background-image: url(../img/band_4671748_1920_1193.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  min-height: 704px;
+}
+
+.header_box_description_caption {
+  box-shadow: inset 0px 10px 38px 0px rgba(0,0,0,0.03);
+  font-family: 'Gilroy Bold', Arial, Helvetica, sans-serif;
+  font-size: 100px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #ffffff;
+  
+}
+
+.header_box_description_caption_h2 {
+  font-size: 36px;
+  font-family: 'Myriad Pro Regular', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #ffffff;
+  max-width: 458px;
+  margin-top: 23px;
+}
+
+.header_box_description_caption_h2::after {
+  margin-top: 32px;
+  content: "";
+  display: block;
+  width: 70px;
+  height: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin-bottom: 25px;
+}
+
+.header_box_description_specification {
+  opacity: 0.8;
+  font-family: 'Gilroy Regular', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 400;
+  color: #ffffff;
+  border-color: transparent;
+  max-width: 628px;
+}
+
+.header_box_description_button {
+  display: none;
+  background-color: transparent;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #ffffff;
+  width: 135px;
+  height: 42px;
+  border: 2px solid #ffffff;
+  margin-top: 33px;
+}
+
+@media (min-width: 641px) and (max-width: 1200px) {
+  .header_box {
+    padding: 2%;
+  }
+
+  .header_box_description {
+    width: 45%;
+  }
+  
+  .header_box_description_caption {
+    font-size: 70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header_box {
+    flex-direction: column;
+    height: auto;
+    padding-top: 30px;
+    height: auto;
+    background-size: auto;
+  }
+
+  .header_box_description {
+    width: 100%;
+  }
+  
+  .header_box_description_caption {
+    font-size: 40px;
+  }
+  
+  .header_box_description_caption_h2 {
+    font-size: 20px;
+  }
+}
+

@@ -1,0 +1,136 @@
+.header_nav {
+  width: 100vw;
+  height: auto;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding-right: 8%;
+  padding-left: 8%;
+  justify-content: space-between;
+}
+
+.header_nav_img {
+  width: 166px;
+  height: 67px;
+  cursor: pointer;
+}
+
+.header_nav_burger {
+  display: none;
+}
+
+.header_nav_list {
+  display: flex;
+}
+
+.header_nav_sublist {
+  display: none;
+}
+
+.menu_active {
+  display: block;
+}
+
+.header_nav_list_item, .header_nav_sublist_item {
+  list-style-type: none;
+  margin-right: 42px;
+}
+
+.header_nav_list_item_link {
+  font-family: 'Gilroy Regular', Arial, sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  opacity: 0.69;
+  line-height: 1.2;
+  
+}
+.header_nav_list_item:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 1200px) {
+
+  .menu_box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header_nav_list {
+    display: none;
+    flex-direction: column;
+    background-color: #000000;
+    padding-top: 10px;
+    padding-left: 0;
+    box-sizing:border-box;
+  }
+  
+  .header_nav_burger {
+    display: none;
+    width: 50px;
+    height: 23px;
+    border-top: 5px solid #ffffff;
+    border-bottom: 5px solid #ffffff;
+    box-sizing: border-box;
+  }
+
+  .header_nav_sublist {
+    display: none;
+  }
+
+  .menu_active {
+    display: block;
+  }
+
+  .header_nav_burger::after {
+    content: '';
+    display: block;
+    background-color: #ffffff;
+    width: 50px;
+    height: 5px;
+    margin-top: 4px;
+  }
+  
+  .header_nav_list_item {
+    min-height: 30px;
+  }
+  
+  .header_nav_list_item_link {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1200px) {
+  .menu_box {
+    align-self: start;
+    margin-top: 20px;
+    align-items: flex-end;
+  }
+
+  .header_nav_sublist {
+    position: absolute;
+    top: 70px;
+    right: calc(50% - 104px);
+    padding: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .header_nav_list {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 67px;
+  }
+  .header_nav_list_item {
+    text-align: center;
+    margin: 0;
+  }
+  
+  .header_nav_list_item_link {
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  
+}
