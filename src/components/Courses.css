@@ -1,0 +1,99 @@
+.guitar_buttons_list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  width: 112px;
+}
+
+.col_box_guitar_button {
+width: 112px;
+height: 112px;
+background-color: #212121;
+border: 0.5px solid #f5f5f5;
+text-transform: uppercase;
+color: #ffffff;
+}
+
+.col_box_guitar_button_item:last-child button {
+  border-radius: 0 0 3px 3px;
+}
+
+.col_box_guitar_button_item:first-child button {
+  border-radius: 3px 3px 0 0 ;
+}
+
+.col_box_guitar_button:hover, .col_box_guitar_button:focus {
+  background-color: #cc3333;
+}
+
+.col_box_guitar_header {
+font-size: 25px;
+line-height: 1.2;
+font-weight: 400;
+color: #000000;
+}
+
+.col_box_guitar_descriptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  max-width: 468px;
+}
+
+.col_box_guitar_description {
+font-size: 14px;
+line-height: 20px;
+font-weight: 400;
+color: #86878b;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+
+.guitar_descr_item_active {
+  display: block;
+}
+
+.col_box_guitar_download {
+border: 0;
+width: 121px;
+height: 46px;
+background-color: #cc3333;
+color: #ffffff;
+border-radius: 3px;
+}
+
+.col_box_guitar_img {
+  width: 40%;
+}
+
+@media (min-width: 641px) and (max-width: 1200px) {
+  .col_box_guitar_button {
+    width: 90px;
+    height: 90px;
+  }
+  .col_box_guitar_img {
+    width: 25%;
+  }
+  .col_box_guitar_download {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .guitar_buttons_list {
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .col_box_guitar_descriptions {
+    width: 80%;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .col_box_guitar_img {
+    width: 80%;
+    margin-top: 20px;
+  }
+}

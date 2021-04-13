@@ -3,19 +3,25 @@ import HeaderBoxForm from './HeaderBoxForm';
 import './HeaderBox.css';
 
 
-export default function HeaderBox() {
+export default function HeaderBox(props) {
+  let descriptions = props.descriptions;
+  descriptions = descriptions.map((e) => {
+    return <p className='header_box_description_specification' key={e.id}>{e.text}</p>
+  })
+
+  const backgroundImage = {
+    backgroundImage: `url(${props.backgroundUrl})`
+  };
+
   return (
-    <div class="header_box">
-            <div class="header_box_description">
-                <h1 class='header_box_description_caption'>methin.space</h1>
-                <h2 class='header_box_description_caption_h2'>Академический подход в современной обработке</h2>
-                <p class='header_box_description_specification'>Прогрессивная студия обучения музыке, расположенная в городе Краснодар.</p>
-                <p class='header_box_description_specification'>Для нас всегда остается важнейшей задачей - улучшение качества и доступности музыкального образования. 
-                    Наша цель - создать идеальное пространство для вашего обучения!</p>
-                <p class='header_box_description_specification'>Наша цель - создать идеальное пространство для вашего обучения!</p>
-                <button class='header_box_description_button'>Узнать больше</button> 
+    <header className="header_box" style={backgroundImage}>
+            <div className="header_box_description">
+                <h1 className='header_box_description_caption'>{props.h1}</h1>
+                <h2 className='header_box_description_caption_h2'>{props.h2}</h2>
+                {descriptions}
+                <button className='header_box_description_button'>Узнать больше</button> 
             </div>
             <HeaderBoxForm />
-        </div>
+        </header>
   )
 }

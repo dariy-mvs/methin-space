@@ -2,7 +2,7 @@
 import React from 'react';
 
 import './Header_nav.css';
-import img from '../img/layers-2.png';
+
 
 export default function Header_nav() {
 
@@ -26,7 +26,7 @@ export default function Header_nav() {
   
   return (
     <nav className="header_nav" onClick={HeaderMenuActive}>
-        <img className='header_nav_img' src={img} alt='логотип Methin'/> 
+        <img className='header_nav_img' src='/img/layers-2.png' alt='логотип Methin'/> 
         <div className="menu_box">
             <div className="header_nav_burger menu_active"></div>
             <ul className='header_nav_list'>

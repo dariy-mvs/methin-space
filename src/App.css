@@ -44,5 +44,46 @@
   font-style: normal;
 }
 
+.col_box_article:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+  
+.col_box_article {
+  box-sizing: border-box;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8%;
+  padding-left: 8%;
+  padding-top: 90px;
+  padding-bottom: 165px;
+}
+
+@media (max-width: 1200px) {
+
+.col_box_article {
+  padding: 4%;
+}
+
+}
+
+@media (min-width: 641px) and (max-width: 1200px) {
+
+.col_box_article {
+  justify-content: center;
+}
+
+}
+
+@media (max-width: 640px) {
+
+.col_box_article {
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+}
 
 

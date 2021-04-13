@@ -1,0 +1,122 @@
+.col_box_direction_img {
+  width: 455px;
+  height: 303px;
+  opacity: 0.85;
+  background-color: #000000;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.col_box_direction_img_mobile {
+  display: none;
+}
+
+.col_box_direction_descriptions {
+  max-width: 505px;
+}
+
+.col_box_direction_header {
+  font-family: 'Gilroy Bold';
+  text-transform: uppercase;
+  font-size: 58.4px;
+  line-height: 43px;
+  font-weight: 700;
+  color: #212121;
+}
+.col_box_direction_header::after {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  background-color: #cc3333;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.col_box_direction_description {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #86878b;
+}
+
+.col_box_direction_description_list {
+  list-style-type: none;
+}
+
+.col_box_direction_description_list_item {
+  background: url(cssImg/list_icon_upload_u127_114.png) no-repeat 0px 0px;
+  padding-left: 70px;
+  margin-top: 40px;
+}
+
+.col_box_direction_description_list_item:first-child {
+  margin-top: 45px;
+  padding-top: 0;
+}
+
+.col_box_direction_description_list_item_header {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  color: #212121;
+}
+
+
+.col_box_direction_description_list_item_descr {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #86878b;
+}
+
+@media (max-width: 1200px) {
+
+.col_box_direction_img {
+  display: none;
+}
+  
+.col_box_direction_img_mobile {
+  margin-top: 15px;
+  align-self: center;
+  display: block;
+  opacity: 0.85;
+  background-color: #000000;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.col_box_direction_img_mobile {
+  width: 455px;
+}
+
+.col_box_direction_descriptions {
+  width: 85%;
+  max-width: 100%;
+  display: flex;
+  flex-direction:column;
+}
+
+.col_box_direction_description_list {
+  display: flex;
+}
+.col_box_direction_description_list_item {
+  width: 50%;
+}
+}
+
+@media (max-width: 640px) {
+
+  .col_box_direction_img_mobile {
+    width: 100%;
+  }
+  .col_box_direction_header {
+    font-size: 30px;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+
+}
