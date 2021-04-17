@@ -9,6 +9,7 @@ import Reviews from './components/Reviews.js';
 import React, { useState } from 'react';
 import FooterForm from './components/FooterForm.js';
 import Adress from './components/Adress.js';
+import Teacher from './components/Teacher';
 
 
 
@@ -75,6 +76,7 @@ function App() {
       sectionDescription={'Описание наших отзывов'}
       reviews={[{id: 1, authorName: 'Кот Василий', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat1.png'}, reviewText: 'Это лучшая школа в городе!'}, {id: 2, authorName: 'Кот Иннокентий', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat2.png'}, reviewText: 'Это лучшая школа в городе!'}, {id: 3, authorName: 'Кот', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat3.jpg'}, reviewText: 'Это лучшая школа в городе!'}, {id: 4, authorName: 'Кот Simba', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat4.jpg'}, reviewText: 'Это лучшая школа в городе!'}]}
       />
+      <Teacher img={{src: '/img/cat1.png', alt: 'Артём'}} teacherName='Артём Кремененко' teacherPosition='Основатель музыкальной школы' teacherDescription='hjhjhgjhgjhgjfhgjfhgffhhgfhgfhgfhgfhgf'/>
     <footer>
     <FooterForm updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail} />
     <Adress />

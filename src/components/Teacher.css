@@ -1,0 +1,36 @@
+.our_teacher {
+  font-family: 'Gilroy';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url();
+}
+
+.our_teacher_img {
+  border-radius: 50%;
+  width: 259px;
+  height: 259px;
+  background-size: cover;
+}
+
+.our_teacher_name {
+  font-size: 58.4px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #000000;
+}
+
+.our_teacher_position {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.our_teacher_descr {
+  box-shadow: -14px 20px 29px 0px rgba(0,0,0,0.1);
+  font-size: 25px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #666666;
+}
