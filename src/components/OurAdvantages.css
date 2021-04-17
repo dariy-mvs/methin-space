@@ -1,0 +1,121 @@
+.col_box_weAreGreat::before {
+  content: '';
+  background-image: url(cssImg/arrow.png);
+  width: 88px;
+  height: 75px;
+  margin-top: -125px;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.col_box_detalis {
+  display: flex;
+  flex-direction: column;
+}
+
+.col_box_detalis_header {
+  margin-top: 130px;
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 43px;
+  font-weight: 400;
+  color: #212121;
+}
+
+.col_box_detalis_header::after {
+  content: '';
+  display: block;
+  background-color: #cc3333;
+  width: 64px;
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.col_box_detalis_description {
+  display: block;
+  font-size: 25px;
+  line-height: 20px;
+  font-weight: 300;
+  font-style: italic;
+  color: #86878b;
+  margin-bottom: 40px;
+}
+
+.col_box_weAreGreat_description_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.col_box_weAreGreat_description_list_item {
+  width: 30%;
+  background-position: top center;
+  list-style: none;
+  background-repeat: no-repeat;
+  padding-top: 75px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.col_box_weAreGreat_description_list_item:nth-child(3n + 1) {
+  background-image: url(cssImg/lamp-icon.png);
+}
+
+.col_box_weAreGreat_description_list_item:nth-child(3n + 2) {
+  background-image: url(cssImg/keyboard-icon.png);
+}
+
+.col_box_weAreGreat_description_list_item:nth-child(3n + 3) {
+  background-image: url(cssImg/mol-icons.png);
+}
+
+.col_box_weAreGreat_description_list_item_descr {
+  display: none;
+}
+
+ul .descr_active {
+  display: block;
+}
+
+.col_box_weAreGreat_description_list_item_header {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #333333;
+  cursor: pointer;
+}
+
+.col_box_weAreGreat_description_list_item_descr {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #86878b;
+}
+
+@media (min-width: 641px) and (max-width: 1200px) {
+  .col_box_weAreGreat::before {
+    margin-top: -55px;
+  }
+  .col_box_detalis_header {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .col_box_weAreGreat::before {
+    margin-top: -85px;
+  }
+
+  .col_box_weAreGreat_description_list_item {
+    width: 50%;
+  }
+  
+  .col_box_detalis_header {
+    margin-top: 10px;
+    font-size: 40px;
+  }
+}

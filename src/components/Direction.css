@@ -119,4 +119,12 @@
     margin-top: 20px;
   }
 
+  .col_box_direction_description_list {
+    flex-direction: column;
+  }
+
+  .col_box_direction_description_list_item {
+    width: 80%;
+  }
+
 }

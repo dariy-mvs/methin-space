@@ -24,7 +24,7 @@ export default class HeaderBoxForm extends Component {
   }
   render() {
     return (
-      <div className="header_box_form">
+      <div className="header_box_form" onClick={(event) => {event.target.closest('.header_box_form').scrollIntoView(true)}}>
                 <div className="header_box_form_head">
                     <h3>
                         <span className='header_box_form_head_caption1'>запишись</span>

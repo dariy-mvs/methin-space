@@ -1,0 +1,224 @@
+.col_box_detalis {
+  display: flex;
+  flex-direction: column;
+}
+
+.col_box_detalis_header {
+  margin-top: 130px;
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 43px;
+  font-weight: 400;
+  color: #212121;
+}
+
+.col_box_detalis_header::after {
+  content: '';
+  display: block;
+  background-color: #cc3333;
+  width: 64px;
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.col_box_detalis_description {
+  display: block;
+  font-size: 25px;
+  line-height: 20px;
+  font-weight: 300;
+  font-style: italic;
+  color: #86878b;
+  margin-bottom: 40px;
+}
+
+.col_box_programPrice_description_list {
+  width: 84vw;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.programPrice_price {
+  display: flex;
+  flex-direction: column;
+}
+
+.programPrice_name {
+  height: 59px;
+  background-color: #212121;
+  text-align: center;
+  border-bottom: 1px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.programPrice_name_span {
+  font-size: 20.9px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.programPrice_price {
+  display: block;
+  background-color: #212121;
+  text-align: center;
+  border-bottom: 5px solid #cc3333;
+}
+
+.ad {
+  display: none;
+}
+
+.price_active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cc3333;
+  height: 40px;
+}
+
+.price_active_span {
+  font-size: 16.7px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+}
+
+.programPrice_price_span {
+  display: block;
+  padding-top: 20px;
+  text-transform: uppercase;
+  font-size: 66.7px;
+  font-weight: 400;
+  color: #ffffff;
+  min-height: 100px;
+}
+
+.programPrice_price_descr {
+  display: block;
+  height: 51px;
+}
+
+.programPrice_price_descr_span {
+  opacity: 0.5;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: italic;
+  color: #ffffff;
+}
+
+.programPrice_descr_list {
+  list-style-type: none;
+}
+
+.col_box_programPrice_description_list_item {
+  width: 343px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.programPrice_descr_list_item {
+  width: inherit;
+  display: block;
+  height: 40px;
+  border-bottom: 1px solid #f5f5f5;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.programPrice_descr_list_item_span {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #86878b;
+}
+
+.arrows_box {
+  list-style-type: none;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+.arrow {
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding-top: 15px;
+  cursor: pointer;
+}
+  
+.arrow_left {
+  transform: scale(-1,1)
+}
+
+@media (min-width: 641px) and (max-width: 1200px) {
+
+  .col_box_detalis_header {
+    margin-top: 80px;
+  }
+  
+  .col_box_programPrice_description_list {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .col_box_detalis_header {
+    margin-top: 10px;
+    font-size: 40px;
+  }
+  
+  .col_box_programPrice_description_list {
+    flex-direction: row;
+    overflow-x: auto;
+    width: 100%;
+    align-items: start;
+  }
+  
+  .col_box_programPrice_description_list_item  {
+    box-sizing: border-box;
+    flex-basis: 25%;
+    min-width: 80%;
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .programPrice_name, .programPrice_price {
+    padding-left: 5px;
+    padding-right: 5px;
+  } 
+  
+  .programPrice_name_span {
+    font-size: 15px;
+  }
+  
+  .col_box_programPrice_description_list_item:last-child {
+    margin-right: 0;
+  }
+  
+  .programPrice_descr_list {
+    display: none;
+  }
+
+  .descr_active {
+    display: flex;
+  }
+  
+  .arrow_price {
+    display: block;
+  }
+
+}

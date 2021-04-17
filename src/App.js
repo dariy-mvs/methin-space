@@ -3,6 +3,8 @@ import Header_nav from './components/Header_nav';
 import HeaderBox from './components/HeaderBox';
 import Courses from './components/Courses';
 import Direction from './components/Direction';
+import OurAdvantages from './components/OurAdvantages';
+import Prices from './components/Prices';
 
 
 function App() {
@@ -39,6 +41,17 @@ function App() {
       courseDescription={'Возьмите ритм-секцию под свой контроль, используя программы разработанные специально для вас. Умение играть на этом инструменте - это шанс стать незаменимым в любом музыкальном коллективе.'} questions={[{id: 1, question: 'Как играть лучше?', answer: 'Регулярные занятия под руководством опытного преподавателя- залог успеха в любом вашем начинании.'}, {id: 2, question: 'Нужно ли уметь играть на гитаре, чтобы начать занятия бас-гитарой?', answer: 'Для получения первого опыта и базовых навыков не нужно уже быть музыкантом. Наша методика подходит для тех, кто делает первые шаги в музыке.'}]} 
       imgPosition={'right'} 
       img={{alt: 'гитарист', src: '/img/layers-23.png'}}/>
+
+      <OurAdvantages 
+
+      sectionHeader={'Почему мы классные?'} 
+      sectionDescription={'Потому что бла-бла-бла'} 
+      advantages={[{id: 1, header: 'С какого возраста можно начинать обучение?', advantage: 'Наши программы рассчитаны и на детей, и на взрослых.'}, {id: 2, header: 'С какого возраста можно начинать обучение?', advantage: 'Наши программы рассчитаны и на детей, и на взрослых.'}, {id: 3, header: 'С какого возраста можно начинать обучение?', advantage: 'Наши программы рассчитаны и на детей, и на взрослых.'}, {id: 4, header: 'С какого возраста можно начинать обучение?', advantage: 'Наши программы рассчитаны и на детей, и на взрослых.'}, {id: 5, header: 'С какого возраста можно начинать обучение?', advantage: 'Наши программы рассчитаны и на детей, и на взрослых.'}, {id: 6, header: 'С какого возраста можно начинать обучение?', advantage: 'Наши программы рассчитаны и на детей, и на взрослых.'}]} />
+
+      <Prices 
+      sectionHeader={'стоимость обучения'} 
+      sectionDescription={'Наши цены самые лучшие'} 
+      prices={[{id: 1, packageName: 'Базовый', price: '3000', time: 'оплата за месяц', packageFeatures: ['бла', 'бла-бла', 'bla-bla-bla']}, {id: 2, packageName: 'Продвинутый', price: '5000', time: 'оплата за месяц', packageFeatures: ['бла', 'бла-бла']}, {id: 3, packageName: 'Профессиональный', price: '7000', time: 'оплата за месяц', packageFeatures: ['бла', 'бла-бла']}]}/>
       </main>
     </div>
   );
