@@ -1,0 +1,18 @@
+.arrows_box {
+  list-style-type: none;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+.arrow {
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding-top: 15px;
+  cursor: pointer;
+}
+  
+.arrow_left {
+  transform: scale(-1,1)
+}

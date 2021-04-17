@@ -21,7 +21,7 @@ export default function HeaderBox(props) {
                 {descriptions}
                 <button className='header_box_description_button'>Узнать больше</button> 
             </div>
-            <HeaderBoxForm />
+            <HeaderBoxForm updateUserEmail={props.updateUserEmail} updateUserName={props.updateUserName} userName={props.userName} userEmail={props.userEmail}/>
         </header>
   )
 }

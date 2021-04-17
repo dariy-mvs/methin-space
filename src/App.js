@@ -5,9 +5,26 @@ import Courses from './components/Courses';
 import Direction from './components/Direction';
 import OurAdvantages from './components/OurAdvantages';
 import Prices from './components/Prices';
+import Reviews from './components/Reviews.js';
+import React, { useState } from 'react';
+import FooterForm from './components/FooterForm.js';
+import Adress from './components/Adress.js';
+
 
 
 function App() {
+
+  let [userName, setUserName] = useState('');
+  let [userEmail, setUserEmail] = useState('');
+
+  function updateUserName(name) {
+    setUserName(name);
+  }
+
+  function updateUserEmail(email) {
+    setUserEmail(email);
+  }
+
   return (
     <div className="App">
       <Header_nav />
@@ -17,7 +34,7 @@ function App() {
       h1='methin.space' 
       h2='Академический подход в современной обработке' 
       descriptions={[{id: 1, text: 'Прогрессивная студия обучения музыке, расположенная в городе Краснодар.'}, {id: 2, text: 'Для нас всегда остается важнейшей задачей - улучшение качества и доступности музыкального образования. Наша цель - создать идеальное пространство для вашего обучения!'}, {id: 3, text: 'Наша цель - создать идеальное пространство для вашего обучения!'}]} 
-      backgroundUrl='/img/band_4671748_1920_1193.png' />
+      backgroundUrl='/img/band_4671748_1920_1193.png' updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail} />
 
       <main>
 
@@ -52,7 +69,16 @@ function App() {
       sectionHeader={'стоимость обучения'} 
       sectionDescription={'Наши цены самые лучшие'} 
       prices={[{id: 1, packageName: 'Базовый', price: '3000', time: 'оплата за месяц', packageFeatures: ['бла', 'бла-бла', 'bla-bla-bla']}, {id: 2, packageName: 'Продвинутый', price: '5000', time: 'оплата за месяц', packageFeatures: ['бла', 'бла-бла']}, {id: 3, packageName: 'Профессиональный', price: '7000', time: 'оплата за месяц', packageFeatures: ['бла', 'бла-бла']}]}/>
-      </main>
+    </main>
+      <Reviews 
+      sectionHeader={'отзывы'} 
+      sectionDescription={'Описание наших отзывов'}
+      reviews={[{id: 1, authorName: 'Кот Василий', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat1.png'}, reviewText: 'Это лучшая школа в городе!'}, {id: 2, authorName: 'Кот Иннокентий', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat2.png'}, reviewText: 'Это лучшая школа в городе!'}, {id: 3, authorName: 'Кот', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat3.jpg'}, reviewText: 'Это лучшая школа в городе!'}, {id: 4, authorName: 'Кот Simba', authorPosition: 'менеджер по ловле мышей', authorImg: {alt: 'подпись к изображению', src: '/img/cat4.jpg'}, reviewText: 'Это лучшая школа в городе!'}]}
+      />
+    <footer>
+    <FooterForm updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail} />
+    <Adress />
+    </footer>
     </div>
   );
 }

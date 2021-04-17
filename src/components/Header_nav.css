@@ -1,3 +1,8 @@
+.logo_button {
+border: none;
+outline: none;
+}
+
 .header_nav {
   width: 100vw;
   height: auto;

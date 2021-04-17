@@ -5,9 +5,7 @@ export default class HeaderBoxForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      number: '',
-      email: '',
+      number: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +20,7 @@ export default class HeaderBoxForm extends Component {
     const {name, value} = event.target;
     this.setState({[name]: value});
   }
+
   render() {
     return (
       <div className="header_box_form" onClick={(event) => {event.target.closest('.header_box_form').scrollIntoView(true)}}>
@@ -35,13 +34,15 @@ export default class HeaderBoxForm extends Component {
                     <form className='header_box_form_foundation_form' onSubmit={this.handleSubmit}>
                         <div className="header_box_form_foundation_label">
                         <label className='header_box_form_foundation_form_name'>
-                            <input className='header_box_form_foundation_form_Inputname' placeholder="Имя" name='name' value={this.state.name} required onChange={this.handleChange} />
+                            <input className='header_box_form_foundation_form_Inputname' placeholder="Имя" name='name' value={this.props.userName} required onChange={(event) => {
+                              this.props.updateUserName(event.target.value)}} />
                         </label>
                         <label className='header_box_form_foundation_form_name'>
                             <input className='header_box_form_foundation_form_InputNumber' type='tel' placeholder="Номер телефона" name='number' value={this.state.number}required onChange={this.handleChange} />
                         </label>
                         <label className='header_box_form_foundation_form_name'>
-                            <input className='header_box_form_foundation_form_InputEmail' type='email' placeholder="e-mail" name='email' value={this.state.email}required onChange={this.handleChange} />
+                            <input className='header_box_form_foundation_form_InputEmail' type='email' placeholder="e-mail" name='email' value={this.props.userEmail}required onChange={(event) => {
+                              this.props.updateUserEmail(event.target.value)}} />
                         </label>
                     </div>
                         <button className='header_box_button' href='#0'>Get Started</button>

@@ -1,4 +1,4 @@
-.col_box_detalis {
+/* .col_box_detalis {
   display: flex;
   flex-direction: column;
 }
@@ -32,7 +32,7 @@
   font-style: italic;
   color: #86878b;
   margin-bottom: 40px;
-}
+} */
 
 .col_box_programPrice_description_list {
   width: 84vw;
@@ -144,30 +144,12 @@
   color: #86878b;
 }
 
-.arrows_box {
-  list-style-type: none;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  }
-  
-.arrow {
-  display: block;
-  width: 50px;
-  height: 50px;
-  padding-top: 15px;
-  cursor: pointer;
-}
-  
-.arrow_left {
-  transform: scale(-1,1)
-}
 
 @media (min-width: 641px) and (max-width: 1200px) {
 
-  .col_box_detalis_header {
+  /* .col_box_detalis_header {
     margin-top: 80px;
-  }
+  } */
   
   .col_box_programPrice_description_list {
     width: 100%;
@@ -176,10 +158,10 @@
 
 @media (max-width: 640px) {
 
-  .col_box_detalis_header {
+  /* .col_box_detalis_header {
     margin-top: 10px;
     font-size: 40px;
-  }
+  } */
   
   .col_box_programPrice_description_list {
     flex-direction: row;

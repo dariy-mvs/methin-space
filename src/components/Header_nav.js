@@ -26,7 +26,7 @@ export default function Header_nav() {
   
   return (
     <nav className="header_nav" onClick={HeaderMenuActive}>
-        <img className='header_nav_img' src='/img/layers-2.png' alt='логотип Methin'/> 
+        <button className='logo_button'><img className='header_nav_img' src='/img/layers-2.png' alt='логотип Methin'/></button>
         <div className="menu_box">
             <div className="header_nav_burger menu_active"></div>
             <ul className='header_nav_list'>
