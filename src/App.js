@@ -41,7 +41,7 @@ function App() {
 
       <Courses 
 
-      courses={[{id: 1, nameButton: 'курс 1', header: 'Курс по аккустической гитаре: простые прогрессии.', description: 'lorem1', url:'mmm' }, {id: 2, nameButton: 'курс 2', header: 'Курс по аккустической гитаре: простые прогрессии2.', description: 'lorem2', url:'nnn' }, {id: 3, nameButton: 'курс 3', header: 'Курс по аккустической гитаре: простые прогрессии3', description: 'lorem3', url:'mmm' }]} 
+      courses={[{id: 1, nameButton: 'курс 1', header: 'Курс по аккустической гитаре: простые прогрессии.', description: 'lorem1', url:'/download_files/9101_-_Prostye_progressii_akkordov_1.pdf', documentName: 'имя файла при скачивании' }, {id: 2, nameButton: 'курс 2', header: 'Курс по аккустической гитаре: простые прогрессии2.', description: 'lorem2', url:'nnn', documentName: 'имя файла при скачивании' }, {id: 3, nameButton: 'курс 3', header: 'Курс по аккустической гитаре: простые прогрессии3', description: 'lorem3', url:'mmm', documentName: 'имя файла при скачивании' }]} 
       src={'/img/layers-3.png'} 
       alt={'гитара силуэт'}/> 
 {/* Не могу определиться: эти компоненты - section или article? */}

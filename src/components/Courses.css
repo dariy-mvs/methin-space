@@ -55,7 +55,12 @@ margin-bottom: 50px;
 }
 
 .col_box_guitar_download {
+display: block;
+text-decoration: none;
+text-align: center;
 border: 0;
+box-sizing: border-box;
+padding-top: 13px;
 width: 121px;
 height: 46px;
 background-color: #cc3333;

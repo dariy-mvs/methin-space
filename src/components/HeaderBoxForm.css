@@ -57,6 +57,10 @@
   width: calc(100% - 75px);
 }
 
+.form_checkbox {
+  
+}
+
 .header_box_button {
   width: 100%;
   height: 54px;

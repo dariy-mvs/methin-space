@@ -44,6 +44,11 @@ export default class HeaderBoxForm extends Component {
                             <input className='header_box_form_foundation_form_InputEmail' type='email' placeholder="e-mail" name='email' value={this.props.userEmail}required onChange={(event) => {
                               this.props.updateUserEmail(event.target.value)}} />
                         </label>
+                        <label className='form_checkbox'>
+                        <input type="checkbox" name="accept" className='form_checkbox_input' required onClick={(event) => {if (event.target.checked) {
+                          console.log(true)
+                        }
+                        }}/> Даю согласие на обработку моих персональных данных</label>
                     </div>
                         <button className='header_box_button' href='#0'>Get Started</button>
                     </form>

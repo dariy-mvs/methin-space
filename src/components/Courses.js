@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Courses.css'
 
 
-// Элемент принимает массив с элементами вида: {id: 1, nameButton: 'курс 1', header: 'Курс по аккустической гитаре: простые прогрессии.', description: 'lorem1', url:'' } из свойства props.courses
+// Элемент принимает массив с элементами вида: {id: 1, nameButton: 'курс 1', header: 'Курс по аккустической гитаре: простые прогрессии.', description: 'lorem1', url:'', documentName: '<имя файла при скачивании>' } из свойства props.courses
 
 export default class Courses extends Component {
   constructor(props) {
@@ -12,7 +12,8 @@ export default class Courses extends Component {
       nameButton: props.courses[0].nameButton,
       header: props.courses[0].header,
       description: props.courses[0].description,
-      url: props.courses[0].url
+      url: props.courses[0].url,
+      documentName: props.courses[0].documentName
     };
     this.img = {
       src: props.src,
@@ -50,7 +51,7 @@ export default class Courses extends Component {
             <div className="col_box_guitar_description_box">
                 <h3 className='col_box_guitar_header'>{this.state.header}</h3>
                 <p className='col_box_guitar_description'>{this.state.description}</p>
-                <button className='col_box_guitar_download'>скачать</button>
+                <a className='col_box_guitar_download' href={this.state.url} download={this.state.documentName}>скачать</a>
             </div>
     </div>
         <img className='col_box_guitar_img' src={this.img.src} alt={this.img.alt}/>
