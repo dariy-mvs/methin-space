@@ -1,23 +1,24 @@
 .footer_form {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 35px;
 }
 
 .footer_form_foundation, .footer_form_message {
   display: flex;
   flex-direction: column;
-  width: calc(48vw - 36px);
+  width: calc(50% - 36px);
 }
 
 
 .footer_form_foundation_label {
-  width: inherit;
+  width: 100%;
   margin-bottom: 30px;
 }
 
 .footer_form_foundation_input {
   margin-right: 36px;
-  width: inherit;
+  width: 100%;
   height: 31px;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 1px 0px 0px rgba(0,0,1,0.15);
@@ -35,7 +36,7 @@
 
 .footer_form_message_input {
   padding-top: 10px;
-  width: inherit;
+  width: 100%;
   height: inherit;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 1px 0px 0px rgba(0,0,1,0.15);
@@ -49,9 +50,39 @@
 }
 
 .footer_form_message_label {
-  width: inherit;
+  width: 100%;
   height: 100%;
 }
+
+.form_checkbox {
+  width: calc(100% - 75px);
+  margin-bottom: 35px;
+}
+
+.checkbox_text {
+  font-family: 'Gilroy Regular', Arial, Helvetica, sans-serif;
+}
+
+.checkbox_text::before { 
+  content: ""; 
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../components/cssImg/1200px-Red_checkbox-unchecked.svg.png);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  }
+
+.form_checkbox_input:checked ~ .checkbox_text::before {
+  background-image: url(../components/cssImg/Red_checkbox-checked.svg.png);
+}
+.form_checkbox_input {position: absolute;
+clip: rect(1px, 1px, 1px, 1px);
+height: 1px;
+width: 1px;}
 
 .footer_form_button {
   margin-top: 40px;
@@ -66,8 +97,20 @@
   border-radius: 3px;
 }
 
+.error_message {
+  font-family: 'Gylroy Regular', Helvetica, sans-serif;
+  color:#cc3333;
+  position: absolute;
+  top: 220px;
+  left: 0;
+}
+.error {
+  box-shadow: 0 0 15px #cc3333;
+}
+
 form {
   width: 100%;
+  position: relative;
 }
 
 @media (max-width: 640px) {

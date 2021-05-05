@@ -13,18 +13,146 @@ import Teacher from './components/Teacher';
 
 
 
+
 function App() {
 
+
   let [userName, setUserName] = useState('');
+  let [nameValid, setNameValid] = useState(false);
   let [userEmail, setUserEmail] = useState('');
+  let [emailValid, setEmailValid] = useState(false);
+  let [userNumber, setUserNumber] = useState('');
+  let [numberValid, setNumberValid] = useState(false);
+  let [userMessage, setUserMessage] = useState('');
+  let [messageValid, setMessageValid] = useState(false);
+  let [messageTheme, setMessageTheme] = useState('');
+  let [myAgree, setMyAgree] = useState(false);
+  let [formIsValid, setFormIsValid] = useState(false);
+  let [errorMessage, setErrorMessage] = useState('');
+  // let formObject = {
+  //   'name': userName,
+  //   'email': userEmail,
+  //   'number': userNumber,
+  //   'theme': messageTheme,
+  //   'message': userMessage,
+  //   'agree': myAgree
+  // }
 
-  function updateUserName(name) {
-    setUserName(name);
+
+function updateUserName(name) {
+  setUserName(name);
+}
+
+function updateErrorMessage(message) {
+  setErrorMessage(message);
+}
+
+function updateUserEmail(email) {
+  setUserEmail(email);
+}
+
+function updateUserNumber(number) {
+  setUserNumber(number);
+}
+function updateFormIsValid(headerOrFooter) {
+  switch(headerOrFooter) {
+    case 'header': 
+    const headerValidForm = nameValid && numberValid && emailValid && myAgree;
+    setFormIsValid(headerValidForm);
+    updateErrorMessage('');
+    break;
+
+    case 'footer':
+    const footerValidForm = nameValid && messageValid && emailValid && myAgree;
+    setFormIsValid(footerValidForm);
+    updateErrorMessage('');
+    break;
+  }
+  
+};
+
+function updateMyAgree(boolean) {
+  setMyAgree(boolean);
+}
+
+function updateMessageTheme(theme) {
+  setMessageTheme(theme);
+}
+
+function updateNameValid(boolean) {
+  setNameValid(boolean)
+}
+
+function updateEmailValid(boolean) {
+  setEmailValid(boolean)
+}
+
+function updateNumberValid(boolean) {
+  setNumberValid(boolean)
+}
+function updateMessageValid(boolean) {
+  setMessageValid(boolean)
+}
+
+function updateUserMessage(message) {
+  setUserMessage(message)
+}
+
+  function formAddError(input) {
+    input.classList.add('error');
   }
 
-  function updateUserEmail(email) {
-    setUserEmail(email);
+  function formRemoveError(input) {
+    input.classList.remove('error');
   }
+
+  function formValidate(input) {
+    formRemoveError(input);
+    switch(input.name) {
+      
+      case 'email':
+      emailValid = userEmail.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+      if (!emailValid) {
+        updateErrorMessage((errorMessage) => {
+          errorMessage = 'проверьте'
+        });
+        formAddError(input);
+      } else {
+        updateEmailValid(true);
+      }
+      break;
+
+      case 'number':
+      numberValid = userNumber.match(/^\d[\d\(\)\ -]{4,14}\d$/);
+      if (!numberValid) {
+        updateErrorMessage('проверьте корректность данных');
+        formAddError(input);
+      } else {
+        updateNumberValid(true);
+      }
+      break;
+
+      case 'message':
+      if (userMessage === '') {
+        updateErrorMessage('проверьте корректность данных');
+        formAddError(input);
+      } else {
+        updateMessageValid(true);
+      }
+      break;
+
+      case 'name': 
+      if (userName !== '') {
+        updateNameValid(true);
+      } else {
+        updateErrorMessage('проверьте корректность данных');
+        formAddError(input);
+      };
+      default:
+      break;
+  }
+  }
+
 
   return (
     <div className="App">
@@ -35,7 +163,7 @@ function App() {
       h1='methin.space' 
       h2='Академический подход в современной обработке' 
       descriptions={[{id: 1, text: 'Прогрессивная студия обучения музыке, расположенная в городе Краснодар.'}, {id: 2, text: 'Для нас всегда остается важнейшей задачей - улучшение качества и доступности музыкального образования. Наша цель - создать идеальное пространство для вашего обучения!'}, {id: 3, text: 'Наша цель - создать идеальное пространство для вашего обучения!'}]} 
-      backgroundUrl='/img/band_4671748_1920_1193.png' updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail} />
+      backgroundUrl='/img/band_4671748_1920_1193.png' updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail} userNumber={userNumber} updateUserNumber={updateUserNumber} myAgree={myAgree} updateMyAgree={updateMyAgree} formValidate={formValidate}  formIsValid={formIsValid} updateFormIsValid={updateFormIsValid} errorMessage={errorMessage}/>
 
       <main>
 
@@ -78,7 +206,7 @@ function App() {
       />
       <Teacher img={{src: '/img/cat1.png', alt: 'Артём'}} teacherName='Артём Кремененко' teacherPosition='Основатель музыкальной школы' teacherDescription='hjhjhgjhgjhgjfhgjfhgffhhgfhgfhgfhgfhgf'/>
     <footer>
-    <FooterForm updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail} />
+    <FooterForm updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail} updateUserMessage={updateUserMessage} userMessage={userMessage} updateMessageTheme={updateMessageTheme} messageTheme={messageTheme} myAgree={myAgree} updateMyAgree={updateMyAgree} formValidate={formValidate}  formIsValid={formIsValid} updateFormIsValid={updateFormIsValid} errorMessage={errorMessage}/>
     <Adress />
     </footer>
     </div>
@@ -86,3 +214,6 @@ function App() {
 }
 
 export default App;
+
+
+//https://www.youtube.com/watch?v=-yZfdyPMzCE

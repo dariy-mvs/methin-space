@@ -4,21 +4,21 @@ import './HeaderBoxForm.css';
 export default class HeaderBoxForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      number: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.formAddError = this.formAddError.bind(this);
+    this.formRemoveError = this.formRemoveError.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    event.target.querySelector('.header_box_button').textContent = 'Мы с Вами свяжемся!';
-  }
-
-  handleChange(event) {
-    const {name, value} = event.target;
-    this.setState({[name]: value});
+    [...event.target.querySelectorAll('[required]')].forEach(el => {
+      this.props.formValidate(el);
+    });
+    this.props.updateFormIsValid('header');
+    if (this.props.formIsValid) {
+      event.target.querySelector('.header_box_button').textContent = 'Мы с Вами свяжемся!';
+    }
+    
   }
 
   render() {
@@ -33,22 +33,22 @@ export default class HeaderBoxForm extends Component {
                 <div className="header_box_form_foundation">
                     <form className='header_box_form_foundation_form' onSubmit={this.handleSubmit}>
                         <div className="header_box_form_foundation_label">
+                        <span className='error_message'>{this.props.errorMessage}</span>
                         <label className='header_box_form_foundation_form_name'>
                             <input className='header_box_form_foundation_form_Inputname' placeholder="Имя" name='name' value={this.props.userName} required onChange={(event) => {
                               this.props.updateUserName(event.target.value)}} />
                         </label>
                         <label className='header_box_form_foundation_form_name'>
-                            <input className='header_box_form_foundation_form_InputNumber' type='tel' placeholder="Номер телефона" name='number' value={this.state.number}required onChange={this.handleChange} />
+                            <input className='header_box_form_foundation_form_InputNumber' type='tel' placeholder="Номер телефона" name='number' value={this.props.userNumber} required onChange={(event) => {
+                              this.props.updateUserNumber(event.target.value)}} />
                         </label>
                         <label className='header_box_form_foundation_form_name'>
-                            <input className='header_box_form_foundation_form_InputEmail' type='email' placeholder="e-mail" name='email' value={this.props.userEmail}required onChange={(event) => {
+                            <input className='header_box_form_foundation_form_InputEmail' type='email' placeholder="e-mail" name='email' value={this.props.userEmail} required onChange={(event) => {
                               this.props.updateUserEmail(event.target.value)}} />
                         </label>
                         <label className='form_checkbox'>
-                        <input type="checkbox" name="accept" className='form_checkbox_input' required onClick={(event) => {if (event.target.checked) {
-                          console.log(true)
-                        }
-                        }}/> Даю согласие на обработку моих персональных данных</label>
+                        <input type="checkbox" name="accept" className='form_checkbox_input' checked={this.props.myAgree} required onChange={(event) => {
+                              this.props.updateMyAgree(event.target.checked)}}/><span className='checkbox_text'>Даю согласие на обработку моих персональных данных</span></label>
                     </div>
                         <button className='header_box_button' href='#0'>Get Started</button>
                     </form>
@@ -57,8 +57,16 @@ export default class HeaderBoxForm extends Component {
     )
   }
 
+  formAddError(input) {
+    input.classList.add('error');
+  }
+
+  formRemoveError(input) {
+    input.classList.remove('error');
+  }
+
   componentDidUpdate() {
-    console.log(this.state);
+    console.log(this.props.errorMessage);
   }
 
 }

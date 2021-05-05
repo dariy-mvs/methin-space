@@ -21,7 +21,7 @@ export default function HeaderBox(props) {
                 {descriptions}
                 <button className='header_box_description_button'>Узнать больше</button> 
             </div>
-            <HeaderBoxForm updateUserEmail={props.updateUserEmail} updateUserName={props.updateUserName} userName={props.userName} userEmail={props.userEmail}/>
+            <HeaderBoxForm updateUserEmail={props.updateUserEmail} updateUserName={props.updateUserName} userName={props.userName} userEmail={props.userEmail} userNumber={props.userNumber} updateUserNumber={props.updateUserNumber} myAgree={props.myAgree} updateMyAgree={props.updateMyAgree} formValidate={props.formValidate} formIsValid={props.formIsValid} updateFormIsValid={props.updateFormIsValid} errorMessage={props.errorMessage}/>
         </header>
   )
 }
