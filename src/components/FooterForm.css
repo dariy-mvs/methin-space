@@ -97,7 +97,7 @@ width: 1px;}
   border-radius: 3px;
 }
 
-.error_message {
+.footer_form_box .error_message {
   font-family: 'Gylroy Regular', Helvetica, sans-serif;
   color:#cc3333;
   position: absolute;

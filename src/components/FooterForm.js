@@ -10,14 +10,26 @@ export default class FooterForm extends Component {
     this.submitForm = this.submitForm.bind(this);
   }
 
-  submitForm(event) {
+  async submitForm(event) {
     event.preventDefault();
+    let errorCounter = 0;
     [...event.target.querySelectorAll('[required]')].forEach(el => {
-      this.props.formValidate(el);
+      console.log(this.props.formValidate(el));
+      errorCounter += this.props.formValidate(el);
     });
-    this.props.updateFormIsValid('header');
-    if (this.props.formIsValid) {
-      event.target.querySelector('.footer_form_button').textContent = 'Спасибо за сообщение!';
+    if (errorCounter === 0) {
+      let formData = new FormData(event.target);
+      let response = await fetch('../src/mail.php', {
+        method: 'POST',
+        body: formData
+      });
+      if(response.ok) {
+        event.target.querySelector('.footer_form_button').textContent = 'Спасибо за сообщение!';
+      } else {
+        event.target.querySelector('.footer_form_button').textContent = 'Что-то пошло не так...';
+      }
+    } else {
+      this.props.updateState('errorMessage', 'проверьте корректность данных');
     }
   }
 
@@ -29,7 +41,7 @@ export default class FooterForm extends Component {
         <span className="col_box_detalis_description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis.
         </span>
-        <form onSubmit={(event) => {
+        <form className="footer_form_box" onSubmit={(event) => {
           this.submitForm(event);
         }}>
           <div className="footer_form">
@@ -42,7 +54,7 @@ export default class FooterForm extends Component {
                   value={this.props.userName}
                   required
                   onChange={(event) => {
-                    this.props.updateUserName(event.target.value);
+                    this.props.updateState('userName', event.target.value);
                   }}
                 />
               </label>
@@ -55,7 +67,7 @@ export default class FooterForm extends Component {
                   value={this.props.userEmail}
                   required
                   onChange={(event) => {
-                    this.props.updateUserEmail(event.target.value);
+                    this.props.updateState('userEmail', event.target.value);
                   }}
                 />
               </label>
@@ -66,7 +78,7 @@ export default class FooterForm extends Component {
                   name="theme"
                   value={this.props.messageTheme}
                   onChange={(event) => {
-                    this.props.updateMessageTheme(event.target.value);
+                    this.props.updateState('messageTheme', event.target.value);
                   }}
                 />
               </label>
@@ -80,7 +92,7 @@ export default class FooterForm extends Component {
                   required
                   value={this.props.userMessage}
                   onChange={(event) => {
-                    this.props.updateUserMessage(event.target.value);
+                    this.props.updateState('userMessage', event.target.value);
                   }}
                 ></textarea>
               </label>
@@ -94,7 +106,7 @@ export default class FooterForm extends Component {
               checked={this.props.myAgree}
               required
               onChange={(event) => {
-                this.props.updateMyAgree(event.target.checked);
+                this.props.updateState('userAgree', event.target.checked);
               }}
             />
             <span className="checkbox_text">

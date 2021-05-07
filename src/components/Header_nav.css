@@ -25,21 +25,55 @@ outline: none;
   display: none;
 }
 
+
 .header_nav_list {
   display: flex;
 }
 
 .header_nav_sublist {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  background-color: #000000;
+  position: absolute;
+	left: 0;
+  top: 67px;
+	z-index: 1;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	background: transparent;
+	overflow: hidden;
+	transform-origin: 50% 0%;
 }
 
 .menu_active {
   display: block;
 }
 
-.header_nav_list_item, .header_nav_sublist_item {
+.header_nav_list_item {
+  position: relative;
   list-style-type: none;
-  margin-right: 42px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-right: 1px solid #333;
+  letter-spacing: -.05em;
+	background: transparent;		
+	transition: all .25s ease-in-out;
+  min-height: 67px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header_nav_list_item:last-child {
+  border-right: none;
 }
 
 .header_nav_list_item_link {
@@ -48,8 +82,48 @@ outline: none;
   font-size: 16px;
   opacity: 0.69;
   line-height: 1.2;
-  
 }
+.header_nav_list_item:hover {
+  background: #333;
+}
+
+.header_nav_list_item:hover .header_nav_sublist {
+  padding: 15px 0;
+		background: #333;
+		opacity: 1;
+		visibility: visible;
+		box-shadow: 1px 1px 7px rgba(0,0,0,.5);
+		animation-name: swingdown;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+
+}
+.header_nav_sublist_item {
+  padding-top: 10px;
+}
+
+@keyframes swingdown {
+  0% {
+    opacity: .99999;
+    transform: rotateX(90deg);
+  }
+
+  30% {			
+    transform: rotateX(-20deg) rotateY(5deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  65% {
+    transform: rotateX(20deg) rotateY(-3deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: rotateX(0);
+    animation-timing-function: ease-in-out;
+  }
+}
+
 .header_nav_list_item:last-child {
   margin-right: 0;
 }

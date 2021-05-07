@@ -89,7 +89,7 @@ clip: rect(1px, 1px, 1px, 1px);
 height: 1px;
 width: 1px;}
 
-.error_message {
+.header_box_form_foundation_form .error_message {
   font-family: 'Gylroy Regular', Helvetica, sans-serif;
   color:#cc3333;
   position: absolute;

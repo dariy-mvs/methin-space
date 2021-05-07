@@ -1,4 +1,4 @@
-/* *{
+*{
   margin: 0;
   padding: 0;
   font-family: 'Gylroy Regular', Arial, Helvetica, sans-serif;
@@ -6,40 +6,40 @@
 
 @font-face {
   font-family: 'Gilroy Regular';
-  src: url(./fonts/gilroy/regular/Gilroy-Regular.eot);
-  src: url(./fonts/gilroy/regular/Gilroy-Regular.eot) format('embedded-opentype'),
-  url(./fonts/gilroy/regular/Gilroy-Regular.woff) format('woff'),
-  url(./fonts/gilroy/regular/Gilroy-Regular.ttf) format('truetype');
+  src: url(../fonts/gilroy/regular/Gilroy-Regular.eot);
+  src: url(../fonts/gilroy/regular/Gilroy-Regular.eot) format('embedded-opentype'),
+  url(../fonts/gilroy/regular/Gilroy-Regular.woff) format('woff'),
+  url(../fonts/gilroy/regular/Gilroy-Regular.ttf) format('truetype');
   font-weight: 400;
   font-style: normal;
   }
 
 @font-face {
   font-family: 'Gilroy Italic';
-  src: url(./fonts/gilroy/regular_italic/Gilroy-RegularItalic.eot);
-  src: url(./fonts/gilroy/regular_italic/Gilroy-RegularItalic.eot) format('embedded-opentype'),
-  url(./fonts/gilroy/regular_italic/Gilroy-RegularItalic.woff) format('woff'),
-  url(./fonts/gilroy/regular_italic/Gilroy-RegularItalic.ttf) format('truetype');
+  src: url(../fonts/gilroy/regular_italic/Gilroy-RegularItalic.eot);
+  src: url(../fonts/gilroy/regular_italic/Gilroy-RegularItalic.eot) format('embedded-opentype'),
+  url(../fonts/gilroy/regular_italic/Gilroy-RegularItalic.woff) format('woff'),
+  url(../fonts/gilroy/regular_italic/Gilroy-RegularItalic.ttf) format('truetype');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Gilroy Bold';
-  src: url(./fonts/gilroy/bold/Gilroy-Bold.eot);
-  src: url(./fonts/gilroy/bold/Gilroy-Bold.eot) format('embedded-opentype'),
-  url(./fonts/gilroy/bold/Gilroy-Bold.woff) format('woff'),
-  url(./fonts/gilroy/bold/Gilroy-Bold.ttf) format('truetype');
+  src: url(../fonts/gilroy/bold/Gilroy-Bold.eot);
+  src: url(../fonts/gilroy/bold/Gilroy-Bold.eot) format('embedded-opentype'),
+  url(../fonts/gilroy/bold/Gilroy-Bold.woff) format('woff'),
+  url(../fonts/gilroy/bold/Gilroy-Bold.ttf) format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Myriad Pro Regular';
-  src: url(./fonts/Myriad_Pro/regular/MyriadPro-Regular.eot);
-  src: url(./fonts/Myriad_Pro/regular/MyriadPro-Regular.eot) format('embedded-opentype'),
-  url(./fonts/Myriad_Pro/regular/MyriadPro-Regular.woff) format('woff'),
-  url(./fonts/Myriad_Pro/regular/MyriadPro-Regular.ttf) format('truetype');
+  src: url(../fonts/Myriad_Pro/regular/MyriadPro-Regular.eot);
+  src: url(../fonts/Myriad_Pro/regular/MyriadPro-Regular.eot) format('embedded-opentype'),
+  url(../fonts/Myriad_Pro/regular/MyriadPro-Regular.woff) format('woff'),
+  url(../fonts/Myriad_Pro/regular/MyriadPro-Regular.ttf) format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -131,4 +131,4 @@
 
 }
 
- */
+

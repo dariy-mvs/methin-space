@@ -9,21 +9,38 @@ export default class HeaderBoxForm extends Component {
     this.formRemoveError = this.formRemoveError.bind(this);
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
+    let errorCounter = 0;
     [...event.target.querySelectorAll('[required]')].forEach(el => {
-      this.props.formValidate(el);
+      console.log(this.props.formValidate(el));
+      errorCounter += this.props.formValidate(el);
     });
-    this.props.updateFormIsValid('header');
-    if (this.props.formIsValid) {
-      event.target.querySelector('.header_box_button').textContent = 'Мы с Вами свяжемся!';
+    if (errorCounter === 0) {
+      let formData = new FormData(event.target);
+      let response = await fetch('../src/mail.php', {
+        method: 'POST',
+        body: formData
+      });
+      console.log(response);
+      if(response.ok) {
+        event.target.querySelector('.header_box_button').textContent = 'Мы с Вами свяжемся!';
+      } else {
+        event.target.querySelector('.header_box_button').textContent = 'Что-то пошло не так...';
+      }
+    } else {
+      this.props.updateState('errorMessage', 'проверьте корректность данных');
     }
     
   }
 
   render() {
     return (
-      <div className="header_box_form" onClick={(event) => {event.target.closest('.header_box_form').scrollIntoView(true)}}>
+      <div className="header_box_form" onClick={(event) => {
+        if(!event.target.closest('.header_box_button')) {
+          event.target.closest('.header_box_form').scrollIntoView(true)
+        }
+        }}>
                 <div className="header_box_form_head">
                     <h3>
                         <span className='header_box_form_head_caption1'>запишись</span>
@@ -36,19 +53,19 @@ export default class HeaderBoxForm extends Component {
                         <span className='error_message'>{this.props.errorMessage}</span>
                         <label className='header_box_form_foundation_form_name'>
                             <input className='header_box_form_foundation_form_Inputname' placeholder="Имя" name='name' value={this.props.userName} required onChange={(event) => {
-                              this.props.updateUserName(event.target.value)}} />
+                              this.props.updateState('userName', event.target.value)}} />
                         </label>
                         <label className='header_box_form_foundation_form_name'>
                             <input className='header_box_form_foundation_form_InputNumber' type='tel' placeholder="Номер телефона" name='number' value={this.props.userNumber} required onChange={(event) => {
-                              this.props.updateUserNumber(event.target.value)}} />
+                              this.props.updateState('userNumber', event.target.value)}} />
                         </label>
                         <label className='header_box_form_foundation_form_name'>
                             <input className='header_box_form_foundation_form_InputEmail' type='email' placeholder="e-mail" name='email' value={this.props.userEmail} required onChange={(event) => {
-                              this.props.updateUserEmail(event.target.value)}} />
+                              this.props.updateState('userEmail', event.target.value)}} />
                         </label>
                         <label className='form_checkbox'>
-                        <input type="checkbox" name="accept" className='form_checkbox_input' checked={this.props.myAgree} required onChange={(event) => {
-                              this.props.updateMyAgree(event.target.checked)}}/><span className='checkbox_text'>Даю согласие на обработку моих персональных данных</span></label>
+                        <input type="checkbox" name="accept" className='form_checkbox_input' checked={this.props.userAgree} required onChange={(event) => {
+                              this.props.updateState('userAgree', event.target.checked)}}/><span className='checkbox_text'>Даю согласие на обработку моих персональных данных</span></label>
                     </div>
                         <button className='header_box_button' href='#0'>Get Started</button>
                     </form>
@@ -66,7 +83,7 @@ export default class HeaderBoxForm extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.props.errorMessage);
+   // console.log(`errorMessage: ${this.props.errorMessage}, userNumber: ${this.props.userNumber}`);
   }
 
 }
