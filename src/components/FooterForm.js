@@ -1,29 +1,29 @@
-import React, { Component } from "react";
-import "./FooterForm.css";
+import React, { Component } from 'react';
+import './FooterForm.css';
 
 // принимает updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail}
 
 export default class FooterForm extends Component {
   constructor(props) {
     super(props);
-    
+
     this.submitForm = this.submitForm.bind(this);
   }
 
   async submitForm(event) {
     event.preventDefault();
     let errorCounter = 0;
-    [...event.target.querySelectorAll('[required]')].forEach(el => {
+    [...event.target.querySelectorAll('[required]')].forEach((el) => {
       console.log(this.props.formValidate(el));
       errorCounter += this.props.formValidate(el);
     });
     if (errorCounter === 0) {
-      let formData = new FormData(event.target);
-      let response = await fetch('../src/mail.php', {
+      const formData = new FormData(event.target);
+      const response = await fetch('../src/mail.php', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
-      if(response.ok) {
+      if (response.ok) {
         event.target.querySelector('.footer_form_button').textContent = 'Спасибо за сообщение!';
       } else {
         event.target.querySelector('.footer_form_button').textContent = 'Что-то пошло не так...';
@@ -33,7 +33,6 @@ export default class FooterForm extends Component {
     }
   }
 
-  
   render() {
     return (
       <article className="col_box_article col_box_detalis">
@@ -41,16 +40,19 @@ export default class FooterForm extends Component {
         <span className="col_box_detalis_description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis.
         </span>
-        <form className="footer_form_box" onSubmit={(event) => {
-          this.submitForm(event);
-        }}>
+        <form
+          className="footer_form_box"
+          onSubmit={(event) => {
+            this.submitForm(event);
+          }}
+        >
           <div className="footer_form">
             <div className="footer_form_foundation">
               <label className="footer_form_foundation_label">
                 <input
                   className="footer_form_foundation_input"
                   placeholder="Имя"
-                  name='name'
+                  name="name"
                   value={this.props.userName}
                   required
                   onChange={(event) => {
@@ -63,7 +65,7 @@ export default class FooterForm extends Component {
                   className="footer_form_foundation_input"
                   type="email"
                   placeholder="e-mail"
-                  name='email'
+                  name="email"
                   value={this.props.userEmail}
                   required
                   onChange={(event) => {
@@ -94,7 +96,7 @@ export default class FooterForm extends Component {
                   onChange={(event) => {
                     this.props.updateState('userMessage', event.target.value);
                   }}
-                ></textarea>
+                />
               </label>
             </div>
           </div>
@@ -113,7 +115,7 @@ export default class FooterForm extends Component {
               Даю согласие на обработку моих персональных данных
             </span>
           </label>
-          <span className='error_message'>{this.props.errorMessage}</span>
+          <span className="error_message">{this.props.errorMessage}</span>
           <button
             type="submit"
             className="footer_form_button"

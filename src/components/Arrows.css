@@ -4,6 +4,12 @@
   margin-left: auto;
   margin-right: auto;
   }
+
+.arrows_box button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
   
 .arrow {
   display: block;

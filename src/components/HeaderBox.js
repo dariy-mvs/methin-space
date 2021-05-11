@@ -1,27 +1,20 @@
-import React from 'react'
+import React from 'react';
 import HeaderBoxForm from './HeaderBoxForm';
+import HeaderForHeaderBox from './HeaderBox_header';
 import './HeaderBox.css';
 
-
 export default function HeaderBox(props) {
-  let descriptions = props.descriptions;
-  descriptions = descriptions.map((e) => {
-    return <p className='header_box_description_specification' key={e.id}>{e.text}</p>
-  })
+  let { descriptions } = props;
+  descriptions = descriptions.map((e) => <p className="header_box_description_specification" key={e.id}>{e.text}</p>);
 
   const backgroundImage = {
-    backgroundImage: `url(${props.backgroundUrl})`
+    backgroundImage: `url(${props.backgroundUrl})`,
   };
 
   return (
     <header className="header_box" style={backgroundImage}>
-            <div className="header_box_description">
-                <h1 className='header_box_description_caption'>{props.h1}</h1>
-                <h2 className='header_box_description_caption_h2'>{props.h2}</h2>
-                {descriptions}
-                <button className='header_box_description_button'>Узнать больше</button> 
-            </div>
-            <HeaderBoxForm updateState={props.updateState} userName={props.userName} userEmail={props.userEmail} userNumber={props.userNumber} userAgree={props.userAgree} formValidate={props.formValidate} errorMessage={props.errorMessage}/>
-        </header>
-  )
+      <HeaderForHeaderBox h1="methin.space" h2="Академический подход в современной обработке" descriptions={descriptions} />
+      <HeaderBoxForm updateState={props.updateState} userName={props.userName} userEmail={props.userEmail} userNumber={props.userNumber} userAgree={props.userAgree} formValidate={props.formValidate} errorMessage={props.errorMessage} />
+    </header>
+  );
 }

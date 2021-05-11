@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 10px;
 }
 
 .widget-socials {
@@ -31,24 +32,28 @@
 
 .widget-link {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   background-repeat: no-repeat;
-  background-size: 50px;
+  background-size: 30px;
   background-position: center;
 }
-
+.widget-link-telegram {
+  background-image: url(cssImg/icon-paperplane.png);
+}
 .widget-link-instagram {
-  background-image: url(cssImg/social_media_logo_instagram_icon-icons.com_56669.svg);
+  background-image: url(cssImg/inst.png);
 }
 
 .widget-link-vk {
-  /* background-image: url(cssImg/svg-editor-image.svg); */
+  background-image: url(cssImg/vk.png); 
 }
 
 .widget-link-youtube {
-  background-image: url(cssImg/social_media_logo_youtube_icon-icons.com_56664.svg);
-  display: none;
+  background-image: url(cssImg/1525276693_youtube-logo-hd-8.png);
+  width: 37px;
+  height: 30px;
+  background-size: 37px;
 }
 
 .link-text {
@@ -59,16 +64,21 @@
 }
 
 .requisites {
-  font-size: 14px;
+  opacity: 0.5;
+  font-family: 'Gilroy Regular';
+  font-size: 16.4px;
+  line-height: 1.2;
+  font-weight: 400;
   color: #ffffff;
-  display: block;
 }
 
 .requisites:first-child {
   margin-top: 10px;
 }
-
-.watermark {
-  width: 300px;
-  
+.requisites:last-child {
+  font-family: 'Gilroy Regular';
+  font-size: 12.7px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #ffffff;
 }

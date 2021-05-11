@@ -89,13 +89,13 @@ outline: none;
 
 .header_nav_list_item:hover .header_nav_sublist {
   padding: 15px 0;
-		background: #333;
-		opacity: 1;
-		visibility: visible;
-		box-shadow: 1px 1px 7px rgba(0,0,0,.5);
-		animation-name: swingdown;
-		animation-duration: 1s;
-		animation-timing-function: ease;
+	background: #333;
+	opacity: 1;
+	visibility: visible;
+	box-shadow: 1px 1px 7px rgba(0,0,0,.5);
+	animation-name: swingdown;
+	animation-duration: 1s;
+	animation-timing-function: ease;
 
 }
 .header_nav_sublist_item {
@@ -142,6 +142,7 @@ outline: none;
     padding-top: 10px;
     padding-left: 0;
     box-sizing:border-box;
+    transition: all .25s ease-in-out;
   }
   
   .header_nav_burger {
@@ -151,6 +152,7 @@ outline: none;
     border-top: 5px solid #ffffff;
     border-bottom: 5px solid #ffffff;
     box-sizing: border-box;
+    transition: all .25s ease-in-out;
   }
 
   .header_nav_sublist {

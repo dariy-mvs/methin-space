@@ -73,6 +73,9 @@ border-radius: 3px;
 }
 
 @media (min-width: 641px) and (max-width: 1200px) {
+  .col_box_guitar {
+    padding-top: 30px;
+  }
   .col_box_guitar_button {
     width: 90px;
     height: 90px;
@@ -86,6 +89,9 @@ border-radius: 3px;
 }
 
 @media (max-width: 640px) {
+  .col_box_guitar {
+    padding-top: 100px;
+  }
   .guitar_buttons_list {
     flex-direction: row;
     width: 100%;

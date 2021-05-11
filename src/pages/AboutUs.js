@@ -11,7 +11,7 @@ import FooterForm from '../components/FooterForm.js';
 import Adress from '../components/Adress.js';
 import Teacher from '../components/Teacher';
 
-export default class HomePage extends Component {
+export default class AboutUs extends Component {
   constructor() {
     super();
     // Здесь хранятся данные форм. Формы синхронизированы, именно поэтому данные хранятся в общем родителе.
@@ -36,6 +36,9 @@ export default class HomePage extends Component {
       <div className="App">
         <Header_nav />
         <HeaderBox
+
+          h1="раздел О НАС"
+          h2="Академический подход в современной обработке"
           descriptions={[{ id: 1, text: 'Прогрессивная студия обучения музыке, расположенная в городе Краснодар.' }, { id: 2, text: 'Для нас всегда остается важнейшей задачей - улучшение качества и доступности музыкального образования. Наша цель - создать идеальное пространство для вашего обучения!' }, { id: 3, text: 'Наша цель - создать идеальное пространство для вашего обучения!' }]}
           backgroundUrl="/img/band_4671748_1920_1193.png"
           updateState={this.updateState}
@@ -52,11 +55,11 @@ export default class HomePage extends Component {
           <Courses
 
             courses={[{
-              id: '1', nameButton: 'курс 1', header: 'Курс по аккустической гитаре: простые прогрессии.', description: 'lorem1', url: '/download_files/9101_-_Prostye_progressii_akkordov_1.pdf', documentName: 'имя файла при скачивании',
+              id: 1, nameButton: 'курс 1', header: 'Курс по аккустической гитаре: простые прогрессии.', description: 'lorem1', url: '/download_files/9101_-_Prostye_progressii_akkordov_1.pdf', documentName: 'имя файла при скачивании',
             }, {
-              id: '2', nameButton: 'курс 2', header: 'Курс по аккустической гитаре: простые прогрессии2.', description: 'lorem2', url: 'nnn', documentName: 'имя файла при скачивании',
+              id: 2, nameButton: 'курс 2', header: 'Курс по аккустической гитаре: простые прогрессии2.', description: 'lorem2', url: 'nnn', documentName: 'имя файла при скачивании',
             }, {
-              id: '3', nameButton: 'курс 3', header: 'Курс по аккустической гитаре: простые прогрессии3', description: 'lorem3', url: 'mmm', documentName: 'имя файла при скачивании',
+              id: 3, nameButton: 'курс 3', header: 'Курс по аккустической гитаре: простые прогрессии3', description: 'lorem3', url: 'mmm', documentName: 'имя файла при скачивании',
             }]}
             src="/img/layers-3.png"
             alt="гитара силуэт"
