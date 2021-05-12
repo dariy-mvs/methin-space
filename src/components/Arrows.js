@@ -1,5 +1,6 @@
 import React from 'react';
 import './Arrows.css';
+import PropTypes from 'prop-types';
 
 export default function Arrows({ arrowFunction }) {
   return (
@@ -74,3 +75,11 @@ export default function Arrows({ arrowFunction }) {
     </ul>
   );
 }
+Arrows.propTypes = {
+  arrowFunction: PropTypes.func,
+};
+Arrows.defaultProps = {
+  arrowFunction: () => {
+    alert('что-то пошло не так...');
+  },
+};

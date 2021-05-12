@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import './FooterForm.css';
+import PropTypes from 'prop-types';
 
-// принимает updateUserName={updateUserName} userName={userName} updateUserEmail={updateUserEmail} userEmail={userEmail}
+// принимает:
+// updateState={this.updateState}
+// userName={this.state.userName}
+// userEmail={this.state.userEmail}
+// userMessage={this.state.userMessage}
+// messageTheme={this.state.messageTheme}
+// userAgree={this.state.userAgree}
+// formValidate={this.formValidate}
+// errorMessage={this.state.errorMessage}
 
 export default class FooterForm extends Component {
   constructor(props) {
@@ -14,7 +23,6 @@ export default class FooterForm extends Component {
     event.preventDefault();
     let errorCounter = 0;
     [...event.target.querySelectorAll('[required]')].forEach((el) => {
-      console.log(this.props.formValidate(el));
       errorCounter += this.props.formValidate(el);
     });
     if (errorCounter === 0) {
@@ -127,3 +135,28 @@ export default class FooterForm extends Component {
     );
   }
 }
+
+FooterForm.propTypes = {
+  updateState: PropTypes.func.isRequired,
+  userName: PropTypes.string,
+  formValidate: PropTypes.func.isRequired,
+  userEmail: PropTypes.string,
+  userMessage: PropTypes.string,
+  messageTheme: PropTypes.string,
+  userAgree: PropTypes.bool,
+  errorMessage: PropTypes.string,
+};
+FooterForm.defaultProps = {
+  // updateState: () => {
+  //   alert('что-то пошло не так...');
+  // },
+  userName: '',
+  // updateUserEmail: () => {
+  //   alert('что-то пошло не так...');
+  // },
+  userEmail: '',
+  userMessage: '',
+  messageTheme: '',
+  userAgree: false,
+  errorMessage: '',
+};
