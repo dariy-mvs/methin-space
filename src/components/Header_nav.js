@@ -2,7 +2,7 @@ import './Header_nav.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Header_nav() {
+export default function HeaderNav() {
   function HeaderMenuActive(event) {
     let { target } = event;
     const parentMenu = target.closest('.menu_box');
@@ -20,8 +20,21 @@ export default function Header_nav() {
   }
 
   return (
-    <nav className="header_nav" onClick={HeaderMenuActive}>
-      <button className="logo_button"><img className="header_nav_img" src="/img/layers-2.png" alt="логотип Methin" /></button>
+    <nav
+      className="header_nav"
+      onClick={HeaderMenuActive}
+      role="presentation"
+    >
+      <button
+        className="logo_button"
+        type="button"
+      >
+        <img
+          className="header_nav_img"
+          src="/img/layers-2.png"
+          alt="логотип Methin"
+        />
+      </button>
       <div className="menu_box">
         <div className="header_nav_burger menu_active" />
         <ul className="header_nav_list">

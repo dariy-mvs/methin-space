@@ -67,7 +67,7 @@ export default class Courses extends Component {
 }
 
 Courses.propTypes = {
-  courses: PropTypes.arrayOf(PropTypes.string),
+  courses: PropTypes.arrayOf(PropTypes.object),
   src: PropTypes.string,
   alt: PropTypes.string,
 };

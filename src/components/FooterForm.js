@@ -20,10 +20,11 @@ export default class FooterForm extends Component {
   }
 
   async submitForm(event) {
+    const { formValidate, updateState } = this.props;
     event.preventDefault();
     let errorCounter = 0;
     [...event.target.querySelectorAll('[required]')].forEach((el) => {
-      errorCounter += this.props.formValidate(el);
+      errorCounter += formValidate(el);
     });
     if (errorCounter === 0) {
       const formData = new FormData(event.target);
@@ -31,17 +32,22 @@ export default class FooterForm extends Component {
         method: 'POST',
         body: formData,
       });
+      const footerButton = event.target.querySelector('.footer_form_button');
       if (response.ok) {
-        event.target.querySelector('.footer_form_button').textContent = 'Спасибо за сообщение!';
+        footerButton.textContent = 'Спасибо за сообщение!';
       } else {
-        event.target.querySelector('.footer_form_button').textContent = 'Что-то пошло не так...';
+        footerButton.textContent = 'Что-то пошло не так...';
       }
     } else {
-      this.props.updateState('errorMessage', 'проверьте корректность данных');
+      updateState('errorMessage', 'проверьте корректность данных');
     }
   }
 
   render() {
+    const {
+      userName, userEmail, messageTheme,
+      userMessage, updateState, userAgree, errorMessage,
+    } = this.props;
     return (
       <article className="col_box_article col_box_detalis">
         <h3 className="col_box_detalis_header">напишите нам</h3>
@@ -56,74 +62,88 @@ export default class FooterForm extends Component {
         >
           <div className="footer_form">
             <div className="footer_form_foundation">
-              <label className="footer_form_foundation_label">
+              <label className="footer_form_foundation_label" htmlFor="footer_name">
                 <input
                   className="footer_form_foundation_input"
                   placeholder="Имя"
                   name="name"
-                  value={this.props.userName}
+                  id="footer_name"
+                  value={userName}
                   required
                   onChange={(event) => {
-                    this.props.updateState('userName', event.target.value);
+                    updateState('userName', event.target.value);
                   }}
                 />
               </label>
-              <label className="footer_form_foundation_label">
+              <label className="footer_form_foundation_label" htmlFor="footer_email">
                 <input
                   className="footer_form_foundation_input"
                   type="email"
                   placeholder="e-mail"
                   name="email"
-                  value={this.props.userEmail}
+                  id="footer_email"
+                  value={userEmail}
                   required
                   onChange={(event) => {
-                    this.props.updateState('userEmail', event.target.value);
+                    updateState('userEmail', event.target.value);
                   }}
                 />
               </label>
-              <label className="footer_form_foundation_label">
+              <label
+                className="footer_form_foundation_label"
+                htmlFor="footer_theme"
+              >
                 <input
                   className="footer_form_foundation_input"
                   placeholder="тема"
                   name="theme"
-                  value={this.props.messageTheme}
+                  id="footer_theme"
+                  value={messageTheme}
                   onChange={(event) => {
-                    this.props.updateState('messageTheme', event.target.value);
+                    updateState('messageTheme', event.target.value);
                   }}
                 />
               </label>
             </div>
             <div className="footer_form_message">
-              <label className="footer_form_message_label">
+              <label
+                className="footer_form_message_label"
+                htmlFor="footer_message"
+              >
                 <textarea
                   className="footer_form_message_input"
                   placeholder="Ваше сообщение"
                   name="message"
+                  id="footer_message"
                   required
-                  value={this.props.userMessage}
+                  value={userMessage}
                   onChange={(event) => {
-                    this.props.updateState('userMessage', event.target.value);
+                    updateState('userMessage', event.target.value);
                   }}
                 />
               </label>
             </div>
           </div>
-          <label className="form_checkbox">
+          <label
+            className="form_checkbox"
+            htmlFor="footer_accept"
+          >
             <input
               type="checkbox"
               name="accept"
+              id="footer_accept"
               className="form_checkbox_input"
-              checked={this.props.myAgree}
+              checked={userAgree}
               required
               onChange={(event) => {
-                this.props.updateState('userAgree', event.target.checked);
+                updateState('userAgree', event.target.checked);
               }}
             />
             <span className="checkbox_text">
               Даю согласие на обработку моих персональных данных
             </span>
           </label>
-          <span className="error_message">{this.props.errorMessage}</span>
+          <span className="error_message">{errorMessage}</span>
           <button
             type="submit"
             className="footer_form_button"
@@ -147,13 +167,7 @@ FooterForm.propTypes = {
   errorMessage: PropTypes.string,
 };
 FooterForm.defaultProps = {
-  // updateState: () => {
-  //   alert('что-то пошло не так...');
-  // },
   userName: '',
-  // updateUserEmail: () => {
-  //   alert('что-то пошло не так...');
-  // },
   userEmail: '',
   userMessage: '',
   messageTheme: '',

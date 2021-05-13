@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import './Prices.css';
-import Arrows from './Arrows.js';
+import PropTypes from 'prop-types';
+import Arrows from './Arrows';
 
-// Элемент принимает объект с элементами вида: {id: 1, packageName: 'Базовый', price: '3000', time: 'оплата за месяц' packageFeatures: ['бла', 'бла-бла']} из свойства props.prices
+// Элемент принимает объект с элементами вида:
+// {id: 1,
+// packageName: 'Базовый',
+// price: '3000',
+// time: 'оплата за месяц',
+// packageFeatures: ['бла', 'бла-бла']}
+// из свойства props.prices
 // В props нужно передать:
 // sectionHeader={'заголовок типа 'стоимость обучения''}
 // sectionDescription={'Описание цен'}
@@ -19,8 +26,11 @@ export default class Prices extends Component {
     this.choiceOtherPrice = this.choiceOtherPrice.bind(this);
     this.myClick = new Event('click', { bubbles: true, cancelable: true, composed: false });
 
-    // массив цен с описаниями (prices). Внутри мапится список преимуществ пакета в массив packageFeatures
+    // массив цен с описаниями (prices).
+    // Внутри мапится список преимуществ пакета в массив packageFeatures
     this.prices = props.prices.map((e) => {
+      const { description } = this.state;
+
       // массив преимуществ каждого пакета
       const packageFeatures = e.packageFeatures.map((el) => (
         <li className="programPrice_descr_list_item">
@@ -31,7 +41,7 @@ export default class Prices extends Component {
       // сам элемент описания цены
       if (+e.id === 2) {
         return (
-          <li className="col_box_programPrice_description_list_item" key={e.id} data-priceid={e.id} onClick={this.choiceOfPrice}>
+          <li className="col_box_programPrice_description_list_item" key={e.id} data-priceid={e.id} onClick={this.choiceOfPrice} role="presentation">
             <div className="programPrice_name">
               <span className="programPrice_name_span">{e.packageName}</span>
             </div>
@@ -39,7 +49,7 @@ export default class Prices extends Component {
               <span className="programPrice_price_span">{e.price}</span>
               <span className="programPrice_price_descr_span">{e.time}</span>
             </div>
-            <div className="ad price_active"><span className="price_active_span">{this.state.description}</span></div>
+            <div className="ad price_active"><span className="price_active_span">{description}</span></div>
             <ul className="programPrice_descr_list">
               {packageFeatures}
             </ul>
@@ -47,7 +57,7 @@ export default class Prices extends Component {
         );
       }
       return (
-        <li className="col_box_programPrice_description_list_item" key={e.id} data-priceid={e.id} onClick={this.choiceOfPrice}>
+        <li className="col_box_programPrice_description_list_item" key={e.id} data-priceid={e.id} onClick={this.choiceOfPrice} role="presentation">
           <div className="programPrice_name">
             <span className="programPrice_name_span">{e.packageName}</span>
           </div>
@@ -66,10 +76,11 @@ export default class Prices extends Component {
 
   choiceOfPrice(event) {
     // переменные для объекта события
+    const { priceId, description } = this.state;
     const target = event.target.closest('.col_box_programPrice_description_list_item');
     const ad = target.querySelector('.ad');
     const priceList = target.closest('.col_box_programPrice_description_list');
-    const oldPriceActive = priceList.querySelector(`[data-priceid = "${this.state.priceId}"]`);
+    const oldPriceActive = priceList.querySelector(`[data-priceid = "${priceId}"]`);
 
     // позиционируем новый элемент посередине и снимаем активные классы со старого
     target.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' });
@@ -81,15 +92,16 @@ export default class Prices extends Component {
       description: 'Отличный выбор!',
     });
     ad.classList.add('price_active');
-    ad.innerHTML = `<span class='price_active_span'>${this.state.description}</span>`;
+    ad.innerHTML = `<span class='price_active_span'>${description}</span>`;
     target.querySelector('.programPrice_descr_list').classList.add('descr_active');
   }
 
   choiceOtherPrice(event) {
+    const { priceId } = this.state;
     const target = event.target.closest('.arrow');
     const parent = target.closest('.programPrice');
     const list = [...parent.querySelectorAll('.col_box_programPrice_description_list_item')];
-    const oldIndexActive = this.state.priceId - 1;
+    const oldIndexActive = priceId - 1;
 
     if (target.classList.contains('arrow_left')) {
       if (oldIndexActive === 0) {
@@ -107,10 +119,11 @@ export default class Prices extends Component {
   }
 
   render() {
+    const { sectionHeader, sectionDescription } = this.props;
     return (
       <article className="col_box_article col_box_detalis programPrice">
-        <h3 className="col_box_detalis_header">{this.props.sectionHeader}</h3>
-        <span className="col_box_detalis_description">{this.props.sectionDescription}</span>
+        <h3 className="col_box_detalis_header">{sectionHeader}</h3>
+        <span className="col_box_detalis_description">{sectionDescription}</span>
         <ul className="col_box_programPrice_description_list">
           {this.prices}
         </ul>
@@ -119,3 +132,14 @@ export default class Prices extends Component {
     );
   }
 }
+
+Prices.propTypes = {
+  sectionHeader: PropTypes.string,
+  sectionDescription: PropTypes.string,
+  prices: PropTypes.arrayOf(PropTypes.object),
+};
+Prices.defaultProps = {
+  sectionHeader: '',
+  sectionDescription: '',
+  prices: [],
+};
