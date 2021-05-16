@@ -4,29 +4,35 @@ import HeaderBoxForm from './HeaderBoxForm';
 import HeaderForHeaderBox from './HeaderForHeaderBox';
 import './HeaderBox.css';
 
-// Принимает массив descriptions
-// с объектами вида: { id: 1, text: 'Прогрессивная...' },
 // backgroundUrl=".."
 // updateState - функция
 // userName, userEmail, userNumber, errorMessage - строки,
 // userAgree - boolean,
 // formValidate - функция,
-//
+// headerForHeaderBox - объект {
+//  h1: ''
+//  h2: ''
+//  descriptions: массив descriptions
+// с объектами вида: { id: 1, text: 'Прогрессивная...' },
+// }
 
 export default function HeaderBox(props) {
-  let { descriptions } = props;
-  descriptions = descriptions.map((e) => <p className="header_box_description_specification" key={e.id}>{e.text}</p>);
   const {
     updateState, userAgree, userName, userEmail, userNumber,
-    errorMessage, formValidate, backgroundUrl,
+    errorMessage, formValidate, backgroundUrl, headerForHeaderBox,
   } = props;
+  let { descriptions } = headerForHeaderBox;
+  const { h1, h2 } = headerForHeaderBox;
+
+  descriptions = descriptions.map((e) => <p className="header_box_description_specification" key={e.id}>{e.text}</p>);
+
   const backgroundImage = {
     backgroundImage: `url(${backgroundUrl})`,
   };
 
   return (
     <header className="header_box" style={backgroundImage}>
-      <HeaderForHeaderBox h1="methin.space" h2="Академический подход в современной обработке" descriptions={descriptions} />
+      <HeaderForHeaderBox h1={h1} h2={h2} descriptions={descriptions} />
       <HeaderBoxForm
         updateState={updateState}
         userName={userName}
@@ -48,7 +54,7 @@ HeaderBox.propTypes = {
   userNumber: PropTypes.string,
   userAgree: PropTypes.bool,
   errorMessage: PropTypes.string,
-  descriptions: PropTypes.arrayOf(PropTypes.object),
+  headerForHeaderBox: PropTypes.objectOf(PropTypes.any).isRequired,
   backgroundUrl: PropTypes.string,
 };
 HeaderBox.defaultProps = {
@@ -57,6 +63,5 @@ HeaderBox.defaultProps = {
   userNumber: '',
   userAgree: false,
   errorMessage: '',
-  descriptions: [],
   backgroundUrl: '',
 };

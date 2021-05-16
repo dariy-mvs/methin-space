@@ -49,7 +49,7 @@ export default class FooterForm extends Component {
       userMessage, updateState, userAgree, errorMessage,
     } = this.props;
     return (
-      <article className="col_box_article col_box_detalis">
+      <article className="col_box_article col_box_detalis color-block">
         <h3 className="col_box_detalis_header">напишите нам</h3>
         <span className="col_box_detalis_description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis.

@@ -54,7 +54,6 @@ export default class HeaderBoxForm extends Component {
       } else {
         updateState('errorMessage', '');
         resolve(errorCounter);
-        PromiseRejectionEvent(new Error('ошибка'));
       }
     });
     promiseValidate.then((errorCounter) => {
@@ -75,7 +74,7 @@ export default class HeaderBoxForm extends Component {
         className="header_box_form"
         onClick={(event) => {
           if (!event.target.closest('.header_box_button')) {
-            event.target.closest('.header_box_form').scrollIntoView(true);
+            event.target.closest('.header_box_form').scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
         }}
         role="presentation"

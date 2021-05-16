@@ -9,7 +9,6 @@ import Prices from '../components/Prices';
 import Reviews from '../components/Reviews';
 import FooterForm from '../components/FooterForm';
 import Adress from '../components/Adress';
-import Teacher from '../components/Teacher';
 
 export default class HomePage extends Component {
   // Братья-близнецы, добавляющие/снимающие класс error с поля
@@ -37,6 +36,10 @@ export default class HomePage extends Component {
 
     this.updateState = this.updateState.bind(this);
     this.formValidate = this.formValidate.bind(this);
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   // функция, обновляющая стейт.
@@ -107,7 +110,11 @@ export default class HomePage extends Component {
       <div className="App">
         <HeaderNav />
         <HeaderBox
-          descriptions={[{ id: 1, text: 'Прогрессивная студия обучения музыке, расположенная в городе Краснодар.' }, { id: 2, text: 'Для нас всегда остается важнейшей задачей - улучшение качества и доступности музыкального образования. Наша цель - создать идеальное пространство для вашего обучения!' }, { id: 3, text: 'Наша цель - создать идеальное пространство для вашего обучения!' }]}
+          headerForHeaderBox={{
+            h1: 'methin.space',
+            h2: 'Академический подход в современной обработке',
+            descriptions: [{ id: 1, text: 'Прогрессивная студия обучения музыке, расположенная в городе Краснодар.' }, { id: 2, text: 'Для нас всегда остается важнейшей задачей - улучшение качества и доступности музыкального образования. Наша цель - создать идеальное пространство для вашего обучения!' }, { id: 3, text: 'Наша цель - создать идеальное пространство для вашего обучения!' }],
+          }}
           backgroundUrl="/img/band_4671748_1920_1193.png"
           updateState={this.updateState}
           userName={userName}
@@ -138,6 +145,9 @@ export default class HomePage extends Component {
             questions={[{ id: 1, question: 'С какого возраста можно начинать обучение?', answer: 'Наши программы рассчитаны и на детей, и на взрослых. Мы принимаем на обучение с 10 лет.' }, { id: 2, question: 'Что вам дает гитара?', answer: 'Занятия музыкой дисциплинируют, улучшают интеллект и логику, повышают самооценку. Игра на гитаре способствует творчеству, что раскрывает весь потенциал личности.' }]}
             imgPosition="left"
             img={{ alt: 'гитарист', src: '/img/layers-22.png' }}
+            homepage={{
+              linkTo: '/guitar',
+            }}
           />
 
           <Direction
@@ -180,12 +190,12 @@ export default class HomePage extends Component {
             id: 4, authorName: 'Кот Simba', authorPosition: 'менеджер по ловле мышей', authorImg: { alt: 'подпись к изображению', src: '/img/cat4.jpg' }, reviewText: 'Это лучшая школа в городе!',
           }]}
         />
-        <Teacher
+        {/* <Teacher
           img={{ src: '/img/cat1.png', alt: 'Артём' }}
           teacherName="Артём Кремененко"
           teacherPosition="Основатель музыкальной школы"
           teacherDescription="hjhjhgjhgjhgjfhgjfhgffhhgfhgfhgfhgfhgf"
-        />
+        /> */}
         <footer>
           <FooterForm
             updateState={this.updateState}

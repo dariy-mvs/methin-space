@@ -43,7 +43,7 @@ export default function Reviews(props) {
   };
 
   return (
-    <article className="col_box_article col_box_detalis col_box_reviews">
+    <article className="col_box_article col_box_detalis col_box_reviews color-block">
       <h3 className="col_box_detalis_header">{sectionHeader}</h3>
       <span className="col_box_detalis_description">{sectionDescription}</span>
       <ul className="col_box_reviews_list">

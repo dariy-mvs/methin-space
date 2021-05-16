@@ -34,7 +34,7 @@ export default function OurAdvantages(props) {
   ));
 
   return (
-    <article className="col_box_article col_box_weAreGreat col_box_detalis">
+    <article className="col_box_article col_box_weAreGreat col_box_detalis color-block">
       <h3 className="col_box_detalis_header">{sectionHeader}</h3>
       <span className="col_box_detalis_description">{sectionDescription}</span>
       <ul className="col_box_weAreGreat_description_list">
